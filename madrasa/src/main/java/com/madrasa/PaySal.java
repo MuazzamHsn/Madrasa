@@ -176,11 +176,11 @@ public class PaySal extends JFrame implements ActionListener{
                     DBcon conn = new DBcon();
     
                     String tchnm = (String) teachnmfield.getSelectedItem();
-                    String amont = salamntfield.getText();
+                    // String amont = salamntfield.getText();
                     String  month = monthField.getText();
                     String status = "PAID";
     
-                    int res = conn.stmnt.executeUpdate("Insert into salary (teachername,month,sal_amount,sal_status) values ('"+tchnm+"','"+month+"','"+amont+"','"+status+"')");
+                    int res = conn.stmnt.executeUpdate("update salary set  sal_status ='"+status+"' where teachername = '"+tchnm+"' and month = '"+month+"'" );
     
                     if(res>0){
                         JOptionPane.showMessageDialog(this, "Salary Paid to "+tchnm);

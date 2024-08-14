@@ -88,7 +88,7 @@ public class Salaries extends JFrame implements ActionListener {
             try{
                 DBcon con = new DBcon();
 
-                String displaysal ="select id,teachername,month,sal_amount,sal_status from salary";
+                String displaysal ="select serialno,teachername,month,sal_amount,sal_status from salary";
                 ResultSet rs = con.stmnt.executeQuery(displaysal);
 
                 table.setModel(DbUtils.resultSetToTableModel(rs));

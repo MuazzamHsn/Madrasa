@@ -96,7 +96,7 @@ public class Expenses extends JFrame implements ActionListener {
 
             transactions.deductAmount(total, monstr);
             if (transactions.insuffblnc != 0) {
-                JOptionPane.showMessageDialog(this, "Insufficient Funds");
+                JOptionPane.showMessageDialog(this, "Insufficient Funds! will go in debt.");
             }
 
             try {
@@ -111,25 +111,24 @@ public class Expenses extends JFrame implements ActionListener {
                 // Insert expenses
                 int rs = conn.stmnt.executeUpdate("Insert into expenses values('" + monst + "','" + ebilstr + "','" + conscoststr + "','" + salstr + "','" + totalstr + "')");
 
-                // Retrieve and calculate the sum of amounts from funds
-                String query1 = "Select current_balance as total_amount from funds where trans_id = (select max(trans_id) from funds)";
-                ResultSet rs1 = conn.stmnt.executeQuery(query1);
-                String prevfnd = "0"; // Initialize to 0 in case there are no results
-                if (rs1.next()) {
-                    prevfnd = rs1.getString("total_amount");
-                }
+                // // Retrieve and calculate the sum of amounts from funds
+                // String query1 = "Select current_balance as total_amount from funds where trans_id = (select max(trans_id) from funds)";
+                // ResultSet rs1 = conn.stmnt.executeQuery(query1);
+                // String prevfnd = "0"; // Initialize to 0 in case there are no results
+                // if (rs1.next()) {
+                //     prevfnd = rs1.getString("total_amount");
+                // }
 
-                // Calculate total expense
-                int totalexp = Integer.parseInt(ebilstr) + Integer.parseInt(conscoststr) + Integer.parseInt(salstr);
+                
 
-                // Calculate the new fund left after expenses
-                Double newfnd = Double.parseDouble(prevfnd) - totalexp;
+                // // Calculate the new fund left after expenses
+                // Double newfnd = Double.parseDouble(prevfnd) - totalstr;
 
-                // Insert the calculated fund left into finance_history
-                String insertQuery = "insert into finance_history (month, fund_spent, fund_left) values('" + monstr + "','" + totalstr + "','" + newfnd + "')";
-                int ress = conn.stmnt.executeUpdate(insertQuery);
+                // // Insert the calculated fund left into finance_history
+                // String insertQuery = "insert into finance_history (month, fund_spent, fund_left) values('" + monstr + "','" + totalstr + "','" + newfnd + "')";
+                // int ress = conn.stmnt.executeUpdate(insertQuery);
 
-                if (rs > 0 && ress > 0) {
+                if (rs > 0 ) {
                     JOptionPane.showMessageDialog(this, "Data inserted successfully");
                 }
             } catch (Exception e) {

@@ -84,11 +84,11 @@ public class transactions {
             double newBalance = currentBalance - amount;
 
             // Update finance history before deduction
-            String historyUpdate = "UPDATE finance_history " +
-                                   "SET fund_left = ? " +
-                                   "WHERE id = (SELECT * FROM (SELECT MAX(id) FROM finance_history) AS subquery)";
+            String historyUpdate = "Insert into finance_history (month,fund_spent, fund_left) values (?,?,?)";
             PreparedStatement historyPs = con.prepareStatement(historyUpdate);
-            historyPs.setDouble(1, currentBalance);
+            historyPs.setString(1, month);
+            historyPs.setDouble(2, amount);
+            historyPs.setDouble(3, newBalance);
             int historyRes = historyPs.executeUpdate();
 
             // Insert new balance into funds table
@@ -100,16 +100,16 @@ public class transactions {
 
             int res = ps.executeUpdate();
 
-            // Insert new record in finance history
-            if (res > 0 && historyRes > 0) {
-                query = "INSERT INTO finance_history (month, fund_left) VALUES (?, ?)";
-                ps = con.prepareStatement(query);
-                ps.setString(1, month);
-                ps.setDouble(2, newBalance);
-                ps.executeUpdate();
+            
+            
+                // query = "INSERT INTO finance_history (month, fund_left) VALUES (?, ?)";
+                // ps = con.prepareStatement(query);
+                // ps.setString(1, month);
+                // ps.setDouble(2, newBalance);
+                // ps.executeUpdate();
 
                 System.out.println("Amount deducted successfully. New Balance: " + newBalance);
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@ public class ShowFinance extends JFrame implements ActionListener {
     JButton srchbtn,loadbtn,backbtn;
     JTable table;
 
-    private JLabel idlbl, yearlbl, monthlbl, Fundaddlbl, Fundspntlbl, Fundlftlbl;
+    private JLabel idlbl, yearlbl, monthlbl, Fundaddlbl, Fundspntlbl, Fundlftlbl,timelbl;
 
     public ShowFinance(){
         super("Finance information");
@@ -45,24 +45,28 @@ public class ShowFinance extends JFrame implements ActionListener {
         add(idlbl);
 
         yearlbl = new JLabel("Year");
-        yearlbl.setBounds(230,90,200,30);
+        yearlbl.setBounds(190,90,200,30);
         add(yearlbl);
         
         monthlbl = new JLabel("Month");
-        monthlbl.setBounds(415, 90, 200, 30);
+        monthlbl.setBounds(354, 90, 200, 30);
         add(monthlbl);
         
         Fundaddlbl = new JLabel("Fund Added");
-        Fundaddlbl.setBounds(595, 90, 200, 30);
+        Fundaddlbl.setBounds(510, 90, 200, 30);
         add(Fundaddlbl);
         
         Fundspntlbl = new JLabel("Fund Spent");
-        Fundspntlbl.setBounds(780, 90, 200, 30);
+        Fundspntlbl.setBounds(670, 90, 200, 30);
         add(Fundspntlbl);
         
         Fundlftlbl = new JLabel("Fund Left");
-        Fundlftlbl.setBounds(960, 90, 200, 30);
+        Fundlftlbl.setBounds(830, 90, 200, 30);
         add(Fundlftlbl);
+
+        timelbl = new JLabel("Date & Time");
+        timelbl.setBounds(980,90,200,30);
+        add(timelbl);
         
 
 
@@ -104,7 +108,7 @@ public class ShowFinance extends JFrame implements ActionListener {
                 DBcon conn = new DBcon();
         
                 String srchnmstr = srchfield.getText();
-                String q = "select * from finance_hostory where month = '" + srchnmstr + "'";
+                String q = "select * from finance_history where month = '" + srchnmstr + "'";
         
                 ResultSet res = conn.scrollstmnt.executeQuery(q);
                 if (res.next()) {
