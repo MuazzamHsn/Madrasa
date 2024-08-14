@@ -1,0 +1,1 @@
+A complete Madrasa or a school Management Software solution. Build with Pure Java, Maven and MySQL.
