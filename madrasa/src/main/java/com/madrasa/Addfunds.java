@@ -1,8 +1,9 @@
 package com.madrasa;
 
-import java.awt.Font;
 import java.awt.event.*;
 import java.sql.ResultSet;
+
+import java.awt.*;
 
 import javax.swing.*;
 
@@ -15,7 +16,7 @@ public class Addfunds extends JFrame implements ActionListener {
     public Addfunds(){
         super("Add Fund");
         setLayout(null);
-        setBounds(300,150,500,400);
+        setBounds(300,150,700,400);
 
         infolbl = new JLabel("Add Fund to Account");
         infolbl.setFont(new Font("Typograph Pro", Font.PLAIN, 15));
@@ -25,13 +26,13 @@ public class Addfunds extends JFrame implements ActionListener {
         monthlbl.setBounds(100,100,150,30);
 
         monthfield = new JTextField();
-        monthfield.setBounds(220,100,200,30);
+        monthfield.setBounds(210,100,200,30);
 
         prevamntlbl = new JLabel("Current Balance: ");
         prevamntlbl.setBounds(100,150,200,30);
 
         prevamntfield = new JTextField();
-        prevamntfield.setBounds(220,150,150,30);
+        prevamntfield.setBounds(220,150,180,30);
 
         amountlbl = new JLabel("Add Amount: ");
         amountlbl.setBounds(100,200,90,30);
@@ -40,10 +41,39 @@ public class Addfunds extends JFrame implements ActionListener {
         amountfield.setBounds(210,200,200,30);
 
         canclbtn = new JButton("Cancel");
-        canclbtn.setBounds(150, 300, 90, 30);
+        canclbtn.setBounds(150, 300, 90, 28);
+        canclbtn.setForeground(new Color(0xFFFFFF));
+        canclbtn.setBackground(new Color(0x850900));
 
         addamontbtn = new JButton("Add Amount");
         addamontbtn.setBounds(300, 300, 120, 30);
+        addamontbtn.setForeground(new Color(0xFFFFFF));        
+        addamontbtn.setBackground(new Color(0x0D6A21));        
+
+
+
+        //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\addfund.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(350,5,400,450);
+
+        // Add the label to the JFrame
+        add(label);
+
+
+
+        
 
 
         add(infolbl);

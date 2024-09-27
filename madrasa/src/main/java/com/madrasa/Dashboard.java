@@ -1,7 +1,7 @@
 package com.madrasa;
 
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class Dashboard extends JFrame implements ActionListener{
 
-    JLabel name,projnm,cpyrght;
+    JLabel name,villnam,projnm,cpyrght;
 
     JButton addstudbtn,addtechrbtn,studinfobtn,techinfobtn,fundbtn,expensebtn,mrksentrybtn,examsbtn,givsalbtn,salinfobtn,financebtn,genrtcrtbtn,closebtn;
 
@@ -52,6 +52,27 @@ public class Dashboard extends JFrame implements ActionListener{
         name.setForeground(new Color(0x009000));
         name.setBounds(540,250,1000,200);
         add(name);
+
+        villnam = new JLabel("مشتوبانڈہ    بگٹو    ھنگو");
+        villnam.setFont((new Font("Urdu Typesetting", Font.PLAIN, 40)));
+        villnam.setForeground(new Color(0xce4a00));
+        villnam.setBounds(750,400,1000,200);
+        add(villnam);
+
+                //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\logo.png");
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+        label.setBounds(1085,5,250,250);
+        // Add the label to the JFrame
+        add(label);
+
 
         cpyrght = new JLabel("© 2024 Copyrighted. All rights reserved with Developer MSK");
         cpyrght.setFont(new Font("Alata",Font.PLAIN,15));

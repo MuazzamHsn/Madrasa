@@ -1,6 +1,6 @@
 package com.madrasa;
 
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -56,10 +56,36 @@ public class PaySal extends JFrame implements ActionListener{
         monthField.setBounds(240,250,100,30);    
         
         clsbtn = new JButton("Close");
+        clsbtn.setForeground(new Color(0xFFFFFF));
+        clsbtn.setBackground(new Color(0x850900));
         clsbtn.setBounds(300,400, 80, 29);
         
         paybtn = new JButton("Pay");
         paybtn.setBounds(400,400, 80, 29);
+        paybtn.setForeground(new Color(0xFFFFFF));
+        paybtn.setBackground(new Color(0x296D14));
+
+
+
+                //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\paysal.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(250,30,400,450);
+
+        // Add the label to the JFrame
+        add(label);
+
 
 
 

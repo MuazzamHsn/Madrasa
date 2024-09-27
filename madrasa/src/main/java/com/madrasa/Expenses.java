@@ -1,6 +1,6 @@
 package com.madrasa;
 
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ public class Expenses extends JFrame implements ActionListener {
 
     public Expenses() {
         super("Expenses");
-        setBounds(300, 50, 900, 700);
+        setBounds(300, 50, 900, 620);
         setLayout(null);
 
         infolbl = new JLabel("Expenses");
@@ -49,18 +49,51 @@ public class Expenses extends JFrame implements ActionListener {
 
         retrivbtn = new JButton("Retrieve");
         retrivbtn.setBounds(455, 252, 85, 25);
+        retrivbtn.setForeground(new Color(0xFFFFFF));
+        retrivbtn.setBackground(new Color(0x820940));
 
         total = new JLabel("Total Expense: ");
         total.setBounds(150, 320, 300, 30);
 
         cancelbtn = new JButton("Cancel");
+        cancelbtn.setForeground(new Color(0xFFFFFF));
+        cancelbtn.setBackground(new Color(0x850900));
         cancelbtn.setBounds(300, 500, 100, 30);
 
         calculatebtn = new JButton("Calculate Total");
         calculatebtn.setBounds(410, 500, 150, 30);
+        calculatebtn.setForeground(new Color(0xFFFFFF));
+        calculatebtn.setBackground(new Color(0x047487));
 
         savebtn = new JButton("Save Record");
         savebtn.setBounds(580, 500, 120, 30);
+        savebtn.setForeground(new Color(0xFFFFFF));
+        savebtn.setBackground(new Color(0x296D14));
+
+
+
+        //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\expenses.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(520,20,400,450);
+
+        // Add the label to the JFrame
+        add(label);
+
+
+
+
 
         add(infolbl);
         add(monthlbl);
@@ -102,14 +135,9 @@ public class Expenses extends JFrame implements ActionListener {
             try {
                 DBcon conn = new DBcon();
 
-                String monst = monthfield.getText();
-                String ebilst = electricField.getText();
-                String conscostst = constrctionField.getText();
-                String salst = salryField.getText();
-                Double totalstr = Double.parseDouble(ebilst) + Double.parseDouble(conscostst) + Double.parseDouble(salst);
-
+                
                 // Insert expenses
-                int rs = conn.stmnt.executeUpdate("Insert into expenses values('" + monst + "','" + ebilstr + "','" + conscoststr + "','" + salstr + "','" + totalstr + "')");
+                int rs = conn.stmnt.executeUpdate("Insert into expenses values('" + monstr + "','" + ebilstr + "','" + conscoststr + "','" + salstr + "','" + total + "')");
 
                 // // Retrieve and calculate the sum of amounts from funds
                 // String query1 = "Select current_balance as total_amount from funds where trans_id = (select max(trans_id) from funds)";

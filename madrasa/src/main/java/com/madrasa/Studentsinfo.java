@@ -1,5 +1,6 @@
 package com.madrasa;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 import java.sql.ResultSet;
@@ -26,16 +27,22 @@ public class Studentsinfo extends JFrame implements ActionListener {
 
         srchbtn = new JButton("Search");
         srchbtn.setBounds(801, 22, 90, 26);
+        srchbtn.setForeground(new Color(0xFFFFFF));
+        srchbtn.setBackground(new Color(0x097D97));
 
         stdinfo = new JLabel("Students Information");
         stdinfo.setFont(new Font("Typograph pro",Font.BOLD,15));
         stdinfo.setBounds(120,60,300,40);
 
         backbtn = new JButton("Close");
+        backbtn.setForeground(new Color(0xFFFFFF));
+        backbtn.setBackground(new Color(0x850900));
         backbtn.setBounds(750,630,90,26);
 
         loadbtn = new JButton("Load");
         loadbtn.setBounds(950,625,90,30);
+        loadbtn.setForeground(new Color(0xFFFFFF));
+        loadbtn.setBackground(new Color(0x005DAF));
 
 
 

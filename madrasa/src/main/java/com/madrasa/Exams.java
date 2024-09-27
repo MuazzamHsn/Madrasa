@@ -1,5 +1,6 @@
 package com.madrasa;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -43,13 +44,19 @@ public class Exams extends JFrame implements ActionListener, Printable {
         stdinfo.setBounds(120,60,300,40);
 
         backbtn = new JButton("Back");
+        backbtn.setForeground(new Color(0xFFFFFF));
+        backbtn.setBackground(new Color(0x850900));
         backbtn.setBounds(950,630,90,26);
 
         prntbtn = new JButton("Print");
         prntbtn.setBounds(750,625,90,30);
+        prntbtn.setForeground(new Color(0xFFFFFF));
+        prntbtn.setBackground(new Color(0x047487));
         
         loadbtn = new JButton("Load");
         loadbtn.setBounds(600,625,90,30);
+        loadbtn.setForeground(new Color(0xFFFFFF));
+        loadbtn.setBackground(new Color(0x005DAF));
 
 
 

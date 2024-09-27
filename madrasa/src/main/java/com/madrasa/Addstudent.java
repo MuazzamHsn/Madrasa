@@ -79,12 +79,39 @@ public class Addstudent extends JFrame implements ActionListener{
         bordingfield.setBounds(220,380,200,26);
 
 
+        //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\student.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(500,20,400,450);
+
+        // Add the label to the JFrame
+        add(label);
+
+
+
+
+
 
         cnclbtn = new JButton("Cancel");
         cnclbtn.setBounds(169,509,90,30);
+        cnclbtn.setForeground(new Color(0xFFFFFF));
+        cnclbtn.setBackground(new Color(0x850900));
 
         addbtn = new JButton("Add Student");
         addbtn.setBounds(469,500,130,40);
+        addbtn.setForeground(new Color(0xFFFFFF));        
+        addbtn.setBackground(new Color(0x0D6A21));   
         
 
 

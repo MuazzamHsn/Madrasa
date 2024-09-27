@@ -34,6 +34,8 @@ public class MarksEntry extends JFrame implements ActionListener{
 
         findbtn = new JButton("Find");
         findbtn.setBounds(360,100,70,25);
+        findbtn.setForeground(new Color(0xFFFFFF));
+        findbtn.setBackground(new Color(0x296D14));
 
         namelbl = new JLabel("Name : ");
         namelbl.setBounds(100,140,90,30);
@@ -73,10 +75,14 @@ public class MarksEntry extends JFrame implements ActionListener{
 
 
         cnclbtn = new JButton("Cancel");
+        cnclbtn.setForeground(new Color(0xFFFFFF));
+        cnclbtn.setBackground(new Color(0x850900));
         cnclbtn.setBounds(169,509,90,30);
 
         addbtn = new JButton("Enter Marks");
         addbtn.setBounds(469,500,130,40);
+        addbtn.setForeground(new Color(0xFFFFFF));
+        addbtn.setBackground(new Color(0x005DAF));
 
 
         //When percent field is clicked, it auto fills it.
@@ -128,6 +134,32 @@ public class MarksEntry extends JFrame implements ActionListener{
 
         add(cnclbtn);
         add(addbtn);
+
+
+
+
+
+                //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\marksentry.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(485,20,400,450);
+
+        // Add the label to the JFrame
+        add(label);
+
+
+
 
 
         findbtn.addActionListener(this);

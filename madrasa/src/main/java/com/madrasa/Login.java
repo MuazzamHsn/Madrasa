@@ -64,17 +64,43 @@ public class Login extends JFrame implements ActionListener{
             }
         });
 
+
+
+        //IMAGE BACKGROUND
+
+        // Load the image into an ImageIcon
+        ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\login.png");
+
+        // Resize the image to 100x100 pixels
+        Image smallImage = imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+        // Set the resized image to a new ImageIcon
+        ImageIcon smallIcon = new ImageIcon(smallImage);
+
+        // Create a new JLabel and set the icon to the resized image
+        JLabel label = new JLabel(smallIcon);
+
+        label.setBounds(18,40,100,150);
+
+        // Add the label to the JFrame
+        add(label);
+
+
        
         loginbtn = new JButton("Login");
 
-        loginbtn.setBounds(385,200,90,30);
+        loginbtn.setBounds(385,200,90,32);
         loginbtn.setFont(new Font("Century Gothic",Font.BOLD,15));
         loginbtn.addActionListener(this);
+        loginbtn.setForeground(new Color(0xFFFFFF));
+        loginbtn.setBackground(new Color(0x003B8F));
         add(loginbtn);
 
         closebtn=new JButton("Cancel");
-        closebtn.setBounds(245,205,75,25);
+        closebtn.setBounds(275,200,75,30);
         closebtn.setFont(new Font("Tw cen",Font.BOLD,12));
+        closebtn.setForeground(new Color(0xFFFFFF));
+        closebtn.setBackground(new Color(0xE30F00));
         add(closebtn);
 
         closebtn.addActionListener(this);
