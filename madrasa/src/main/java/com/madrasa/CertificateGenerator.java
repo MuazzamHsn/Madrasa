@@ -119,18 +119,13 @@ public class CertificateGenerator extends JFrame implements Printable {
 
         // Load the image into an ImageIcon
         ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\certificate.png");
-
         // Resize the image to 100x100 pixels
         Image smallImage = imageIcon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
-
         // Set the resized image to a new ImageIcon
         ImageIcon smallIcon = new ImageIcon(smallImage);
-
         // Create a new JLabel and set the icon to the resized image
         JLabel label = new JLabel(smallIcon);
-
         label.setBounds(420,30,400,450);
-
         // Add the label to the JFrame
         add(label);
 
@@ -217,9 +212,11 @@ public class CertificateGenerator extends JFrame implements Printable {
         String percentage = percentField.getText();
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
+
+
         // Create a high-resolution image (e.g., 2400x1800 for HD quality)
-        int width = 2400;
-        int height = 1800;
+        int width = 2300;
+        int height = 2000;
         certificate = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = certificate.createGraphics();
 
@@ -228,8 +225,11 @@ public class CertificateGenerator extends JFrame implements Printable {
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         // Background color
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, width, height);
+        Graphics2D g2d = (Graphics2D) g;
+        GradientPaint gradient = new GradientPaint(2000, 0, Color.decode("#cad0ff"), getWidth(), getHeight(), Color.decode("#DAE5F6"));
+        g2d.setPaint(gradient);
+        g2d.fillRect(0, 0, 2300, 2000);
+        
 
         // Set font
         g.setFont(new Font("Urdu Typesetting", Font.BOLD, 120));
@@ -239,28 +239,36 @@ public class CertificateGenerator extends JFrame implements Printable {
 
         g.drawString("جامعہ عمرینؓ تعلیم القرآن", 720, 200);
 
-        g.setFont(new Font("Clicker Script",Font.ITALIC,160));
-        g.setColor(new Color(0xe59e00));
 
-        g.drawString("Certificate of Completion", 540, 500);
+        //Draw logo
+
+        ImageIcon imageURL = new ImageIcon("madrasa\\src\\main\\resources\\images\\cerlogo.png");
+
+
+        g.drawImage(imageURL.getImage(), 1700,0,600,600, this);
+
+        g.setFont(new Font("Clicker Script",Font.ITALIC,160));
+        g.setColor(new Color(0xA81C07));
+
+        g.drawString("Certificate of Completion", 520, 500);
 
         // Draw details
-        g.setFont(new Font("Serif", Font.PLAIN, 60));
+        g.setFont(new Font("Montserrat", Font.PLAIN, 60));
         g.setColor(Color.BLACK);
         g.drawString("Admission No                         :          " + admissionNo, 360, 700);
         g.drawString("Name                                      :          " + name, 360, 800);
-        g.drawString("Father's Name                         :          " + fatherName, 360, 900);
+        g.drawString("Father's Name                       :          " + fatherName, 360, 900);
         g.drawString("Date of Birth                          :           "+ DOB, 360, 1000);
-        g.drawString("Department                             :          " + department, 360, 1100);
-        g.drawString("Total Marks                            :          " + totalMarks, 360, 1200);
+        g.drawString("Department                           :          " + department, 360, 1100);
+        g.drawString("Total Marks                              :          " + totalMarks, 360, 1200);
         g.drawString("Obtained Marks                      :          " + obtainedMarks, 360, 1300);
         g.drawString("Percentage                              :          " + percentage, 360, 1400);
-        g.drawString("Date and Time Generated      :          " + timeStamp, 360, 1500);
+        g.drawString("Date and Time Generated      :          " + timeStamp, 360, 1550);
 
 
         g.setFont(new Font("Serif", Font.PLAIN, 40));
-        g.drawString("This is computer generated certificate. Does not require any Signature", 610, 1700);
-        g.drawString("Errors / Omissions Accepted.", 860, 1770);
+        g.drawString("This is computer generated certificate. Does not require any Signature", 610, 1900);
+        g.drawString("Errors / Omissions Accepted.", 860, 1970);
 
 
 

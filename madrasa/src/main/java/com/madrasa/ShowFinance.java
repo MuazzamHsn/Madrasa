@@ -101,33 +101,54 @@ public class ShowFinance extends JFrame implements ActionListener {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                     boolean hasFocus, int row, int column) {
                 Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    
                 if (!isSelected) {
                     c.setForeground(new Color(0x0e8d00)); // Green Foreground for "Fund Added" column
+                    c.setFont(new Font("Alata", Font.PLAIN, 12));
                 }
+    
+                // Format the value to include a '+' sign for positive numbers
+                if (value instanceof Number) {
+                    double amount = ((Number) value).doubleValue();
+                    String formattedAmount = (amount >= 0) ? "+ " + amount : String.valueOf(amount);
+                    setText(formattedAmount); // Update the cell text
+                }
+    
                 return c;
             }
         };
-
+    
         // Renderer for 5th column ("Fund Spent")
         TableCellRenderer redRenderer = new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                     boolean hasFocus, int row, int column) {
                 Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    
                 if (!isSelected) {
                     c.setForeground(Color.RED); // Red Foreground for "Fund Spent" column
+                    c.setFont(new Font("Alata", Font.PLAIN, 12));
                 }
+    
+                // Format the value to include a '-' sign (if not already negative)
+                if (value instanceof Number) {
+                    double amount = ((Number) value).doubleValue();
+                    String formattedAmount = (amount < 0) ? String.valueOf(amount) : "- " + amount;
+                    setText(formattedAmount); // Update the cell text
+                }
+    
                 return c;
             }
         };
-
+    
         // Apply renderers to the respective columns
         TableColumn fundAddedColumn = table.getColumnModel().getColumn(3); // 4th column (index 3)
         fundAddedColumn.setCellRenderer(greenRenderer);
-
+    
         TableColumn fundSpentColumn = table.getColumnModel().getColumn(4); // 5th column (index 4)
         fundSpentColumn.setCellRenderer(redRenderer);
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent eee) {

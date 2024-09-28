@@ -139,7 +139,7 @@ public class MarksEntry extends JFrame implements ActionListener{
 
 
 
-                //IMAGE BACKGROUND
+        //IMAGE BACKGROUND
 
         // Load the image into an ImageIcon
         ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\marksentry.png");

@@ -2,7 +2,6 @@ package com.madrasa;
 
 
 import java.awt.*;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,25 +40,25 @@ public class Dashboard extends JFrame implements ActionListener{
         this.setJMenuBar(menubar);
         setLayout(null);
 
-        projnm = new JLabel("Madrasa Management System");
+        projnm = new JLabel("<html><u>Madrasa Management System</u></html>");
         projnm.setFont((new Font("Century Gothic", Font.BOLD, 30)));
-        projnm.setForeground(new Color(0x433637));
+        projnm.setForeground(new Color(0x991E29));
         projnm.setBounds(350,10,1000,200);
         add(projnm);
 
-        name = new JLabel("جامعہ عمرینؓ تعلیم القرآن");
-        name.setFont((new Font("Urdu Typesetting", Font.PLAIN, 100)));
-        name.setForeground(new Color(0x009000));
-        name.setBounds(540,250,1000,200);
+        name = new JLabel("جامعہ عمرین  تعلیم القرآن");
+        name.setFont((new Font("Bombay Black Unicode", Font.PLAIN, 70)));
+        name.setForeground(new Color(0x006D6F));
+        name.setBounds(440,250,1000,200);
         add(name);
 
-        villnam = new JLabel("مشتوبانڈہ    بگٹو    ھنگو");
-        villnam.setFont((new Font("Urdu Typesetting", Font.PLAIN, 40)));
-        villnam.setForeground(new Color(0xce4a00));
-        villnam.setBounds(750,400,1000,200);
+        villnam = new JLabel("مشتوبانڈہ   بگٹو   ھنگو");
+        villnam.setFont((new Font("Jameel Noori Nastaleeq", Font.PLAIN, 40)));
+        villnam.setForeground(new Color(0x0D98BA));
+        villnam.setBounds(750,370,1000,200);
         add(villnam);
 
-                //IMAGE BACKGROUND
+        //IMAGE BACKGROUND
 
         // Load the image into an ImageIcon
         ImageIcon imageIcon = new ImageIcon("madrasa\\src\\main\\resources\\images\\logo.png");
